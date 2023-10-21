@@ -1,0 +1,23 @@
+class Solution
+{
+public:
+vector<int>ans;
+
+    void subSum(vector<int>&arr, int n,int sum,int i){
+        if(i==n){
+            ans.push_back(sum);
+            return;
+        }
+        
+        subSum(arr,n,sum+arr[i],i+1);
+        subSum(arr,n,sum,i+1);
+    }
+    
+    vector<int> subsetSums(vector<int> arr, int N)
+    {
+        // Write Your Code here
+        int sum=0,i=0;
+        subSum(arr,N,sum,i);
+        return ans;
+    }
+};
